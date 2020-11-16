@@ -1,0 +1,24 @@
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Role List</h1>
+{% if role_list %}
+<ul>
+    {% for role in role_list %}
+    <li>
+        <a href="{{ role.get_absolute_url }}">{{ role.name }}</a> ({{ role.weapon }})
+    </li>
+    {% endfor %}
+
+    <br><br>
+
+    <form method="post">
+        <button type="submit"><a href="{% url 'role_create' %}">新增角色</a></button>
+    </form>
+</ul>
+{% else %}
+<p>There are no roles in the web.</p>
+{% endif %}
+
+{% endblock %}

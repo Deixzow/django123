@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<form action="" method="post" >
+    {% csrf_token %}
+
+    <div>
+        <input type="submit" value="新增" />
+        <input type="hidden" name="C" value="{{ C }}" />
+    </div>
+    <div>
+        <input type="submit" value="修改" />
+        <input type="hidden" name="U" value="{{ U }}" />
+    </div>
+    <div>
+        <input type="submit" value="刪除" />
+        <input type="hidden" name="D" value="{{ D }}" />
+    </div>
+    <div>
+        <input type="submit" value="查詢" />
+        <input type="hidden" name="R" value="{{ R }}" />
+    </div>
+</form>
+
+{% endblock %}

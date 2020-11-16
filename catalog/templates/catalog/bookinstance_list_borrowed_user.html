@@ -1,0 +1,34 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div>
+    <h1 class="my-4">Borrowed books</h1>
+</div>
+
+{% if bookinstance_list %}
+<div class="col-12" style="overflow-x: scroll">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col"></a>Book Title</th>
+            <th scope="col">Due_back</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for bookinst in bookinstance_list %}
+        <tr>
+            <td><a href="{% url 'book-detail' bookinst.book.pk %}">{{ bookinst.book.title }}</td>
+            <td>{{ bookinst.due_back }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% else %}
+<p>There are no books borrowed.</p>
+{% endif %}
+
+{% endblock %}

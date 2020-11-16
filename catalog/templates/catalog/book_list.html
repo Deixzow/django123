@@ -1,0 +1,52 @@
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div>
+    <div style="float:left">
+        <h1 class="my-4">Book List</h1>
+    </div>
+    <div style="float:right">
+        <a href="{% url 'book_create' %}">
+            <button type="button" class="btn btn-outline-primary btn-sm"> + Add book</button></a>
+    </div>
+</div>
+
+{% if book_list %}
+<div class="col-12" style="overflow-x: scroll">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Book Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for book in book_list %}
+        <tr>
+            <td><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></td>
+            <td>{{ book.author }}</td>
+            <td><a href="{% url 'book_update' book.id %}">
+                <button type="button" class="btn btn-outline-primary btn-sm">Edit</button></a>
+            </td>
+            <td><a href="{% url 'book_delete' book.id %}">
+                <button type="button" class="btn btn-outline-primary btn-sm">Delete</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% else %}
+<p>There are no books in the library.</p>
+{% endif %}
+
+{% endblock %}
+
+
+

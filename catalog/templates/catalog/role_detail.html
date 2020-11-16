@@ -1,0 +1,33 @@
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1> {{ role.name }} </h1>
+
+<p><strong>Name: </strong>{{ role.name }}</p>
+<p><strong>Summary: </strong>{{ role.summ }} </p>
+<p><strong>Birthday: </strong>{{ role.birthday }} </p>
+<p><strong>Weapon: </strong>{{ role.weapon }} </p>
+<p><strong>Skill: </strong>{{ role.weapon.skill }}</p>
+
+<br>
+
+<div>
+    <form method="post">
+        <button type="submit">
+            <a href="">修改角色</a>
+        </button>
+    </form>
+</div>
+
+<div>
+    <form method="post">
+        <button type="submit">
+            <a href="">刪除角色</a>
+        </button>
+    </form>
+</div>
+
+{% endblock %}
+<!--    <p><strong>Name:</strong> <a href="{% url 'author-detail' book.author.pk %}">{{ book.author }}</a></p>
+-->

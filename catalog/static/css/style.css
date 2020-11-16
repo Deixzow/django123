@@ -1,0 +1,11 @@
+.bg {
+    background-image: url("/static/img/library.jpg");
+    background-attachment:fixed;
+    background-size:100% 100%;
+}
+
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
